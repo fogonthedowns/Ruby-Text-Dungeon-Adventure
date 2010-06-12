@@ -1,0 +1,24 @@
+Obviously needs work, but it works for the first 11 turns!
+
+>> load 'ruby.rb'=> true
+>> game = Dungeon.new("JZ")=> #<Dungeon:0x1015ec570 @rooms=[], @player=#<Dungeon::Player:0x1015ec520 @name="JZ">>
+>> game.add_room(:largecave, "Large Cave", "A deep cave", {:west => :smallcave }, "Gold")
+=> [#<Dungeon::Room:0x1015e1c38 @name="Large Cave", @connections={:west=>:smallcave}, @description="A deep cave", @reference=:largecave, @items="Gold">]
+>> game.add_room(:smallcave, "Small Cave", "A small, confined cave", {:east => :largecave }, "Silver")
+=> [#<Dungeon::Room:0x1015e1c38 @name="Large Cave", @connections={:west=>:smallcave}, @description="A deep cave", @reference=:largecave, @items="Gold">, #<Dungeon::Room:0x1015d6270 @name="Small Cave", @connections={:east=>:largecave}, @description="A small, confined cave", @reference=:smallcave, @items="Silver">]
+>> game.add_room(:hiddencave, "Hidden Cave", "You discovered a hidden cave", {:east => :largecave }, "animantium")
+=> [#<Dungeon::Room:0x1015e1c38 @name="Large Cave", @connections={:west=>:smallcave}, @description="A deep cave", @reference=:largecave, @items="Gold">, #<Dungeon::Room:0x1015d6270 @name="Small Cave", @connections={:east=>:largecave}, @description="A small, confined cave", @reference=:smallcave, @items="Silver">, #<Dungeon::Room:0x1015c9890 @name="Hidden Cave", @connections={:east=>:largecave}, @description="You discovered a hidden cave", @reference=:hiddencave, @items="animantium">]
+>> game.start(:hiddencave)Hidden Cave
+
+You are in You discovered a hidden cave
+Which direction would you like to go?
+east
+You go east
+Large Cave
+
+You are in A deep cave
+Large Cave
+
+You are in A deep cave
+Which direction would you like to go?
+
